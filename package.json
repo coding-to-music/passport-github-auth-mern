@@ -1,12 +1,19 @@
 {
-  "name": "github_auth",
+  "name": "passport-github-auth-mern",
   "version": "1.0.0",
   "description": "Authenticate with passport js for Github",
   "main": "index.js",
+  "engines": {
+    "node": "16.x"
+  },
+  "cacheDirectories": [
+    "node_modules"
+  ],
   "scripts": {
     "dev": "nodemon server.js",
     "start": "node server.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "deploy": "git add . && git commit -m Heroku && git push && git push heroku && heroku logs --tail --remote heroku"
   },
   "author": "Joshua Evuetapha",
   "license": "ISC",
