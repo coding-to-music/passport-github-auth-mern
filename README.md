@@ -10,6 +10,8 @@
 
 https://github.com/coding-to-music/passport-github-auth-mern
 
+http://localhost:3000/auth
+
 https://passport-github-auth-mern.herokuapp.com
 
 https://passport-github-auth-mern.onrender.com
@@ -19,8 +21,20 @@ by Joshua Evuetapha https://github.com/Joshuajee
 https://github.com/Joshuajee/passport-github-auth
 
 ```java
-const secret = process.env.JWT_SECRET;
+      secret: process.env.JWT_SECRET,
+
 mongoose_1.default.connect(`${process.env.MONGODB_URI
+
+    clientID: process.env.GITHUB_CLIENT_ID,
+    clientSecret: process.env.GITHUB_CLIENT_SECRET,
+    callbackURL: process.env.GITHUB_CALLBACK_URL
+
+JWT_SECRET
+MONGODB_URI
+GITHUB_CLIENT_ID
+GITHUB_CLIENT_SECRET
+GITHUB_CALLBACK_URL
+
 ```
 
 ## Deploying to Render

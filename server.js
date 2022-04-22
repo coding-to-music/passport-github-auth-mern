@@ -1,37 +1,37 @@
-const mongoose = require('mongoose');
-const dotenv = require('dotenv');
+const mongoose = require("mongoose");
+const dotenv = require("dotenv");
 
-dotenv.config({ path: './.env' });
+dotenv.config({ path: "./.env" });
 
-const app = require('./app');
+const app = require("./app");
 
 mongoose
-  .connect(process.env.DATABASE, { useUnifiedTopology: true })
-  .then(() => console.log('DB connection successful!'));
+  .connect(process.env.MONGODB_URI, { useUnifiedTopology: true })
+  .then(() => console.log("DB connection successful!"));
 
-const port = process.env.PORT || 8081;
+const port = process.env.PORT || 3000;
 
 app.listen(port, () => {
   console.log(`App running on port ${port}...`);
 });
-  
-process.on('uncaughtException', err => {
-    console.log('UNCAUGHT EXCEPTION! 💥 Shutting down...');
-    console.log(err.name, err.message);
-    process.exit(1);
+
+process.on("uncaughtException", (err) => {
+  console.log("UNCAUGHT EXCEPTION! 💥 Shutting down...");
+  console.log(err.name, err.message);
+  process.exit(1);
 });
 
-process.on('unhandledRejection', err => {
-    console.log('UNHANDLED REJECTION! 💥 Shutting down...');
-    console.log(err.name, err.message);
-    server.close(() => {
-      process.exit(1);
-    });
+process.on("unhandledRejection", (err) => {
+  console.log("UNHANDLED REJECTION! 💥 Shutting down...");
+  console.log(err.name, err.message);
+  server.close(() => {
+    process.exit(1);
+  });
 });
-  
-process.on('SIGTERM', () => {
-    console.log('👋 SIGTERM RECEIVED. Shutting down gracefully');
-    server.close(() => {
-      console.log('💥 Process terminated!');
-    });
+
+process.on("SIGTERM", () => {
+  console.log("👋 SIGTERM RECEIVED. Shutting down gracefully");
+  server.close(() => {
+    console.log("💥 Process terminated!");
+  });
 });
