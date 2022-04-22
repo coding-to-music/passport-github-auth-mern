@@ -8,7 +8,11 @@ module.exports = new GitHubStrategy(
     callbackURL: process.env.GITHUB_CALLBACK_URL,
   },
   function (accessToken, refreshToken, profile, done) {
+    console.log("in github.js");
+
     console.log("profile.id", profile.id);
+    console.log("accessToken", accessToken);
+    console.log("refreshToken", refreshToken);
 
     User.findOne({ githubId: profile.id }).then((data, err) => {
       if (!data)
